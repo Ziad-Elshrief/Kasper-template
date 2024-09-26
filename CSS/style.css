@@ -1,9 +1,14 @@
 :root {
-
+  --section-padding: 80px;
   --main-color: #19c8fa;
   --secondary-color: rgb(15 116 143 / 70%);
 }
 
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
 
 * {
   box-sizing: border-box;
@@ -95,6 +100,33 @@ html {
   font-size: 16px;
 }
 
+.option-box {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+}
+
+.option.active {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+
+.option:not(.active):hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+
 .header {
   width: 100%;
   background-color: transparent;
@@ -112,22 +144,15 @@ html {
 .header .container::before {
   content: '';
   height: 1px;
-  width: 98%;
+  width: calc(100% - 30px);
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   bottom: -30px;
-  left: 1%;
+  left: 15px;
 }
 
 .header .logo img {
   width: 125px
-}
-
-.header .links {
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 /* Small */
@@ -180,16 +205,8 @@ html {
   color: var(--main-color);
 }
 
-.header .links li:first-of-type a::before {
-  content: '';
-  height: 1px;
-  width: 110%;
-  background-color: var(--main-color);
-  position: absolute;
-  bottom: calc(-65% - 30px);
-  left: 0;
-}
 
+.header .links li:first-of-type a::before,
 .header .links li:not(:first-of-type):hover a::before {
   content: '';
   height: 1px;
@@ -198,6 +215,10 @@ html {
   position: absolute;
   bottom: calc(-65% - 30px);
   left: 0;
+}
+
+.header .links li:first-of-type a::before {
+  width: 110%;
 }
 
 .header .links li:not(:first-of-type):hover a {
@@ -214,33 +235,10 @@ html {
 }
 
 .landing .option-box {
-  width: 80px;
   transform: translate(-50%, 0);
   position: absolute;
   bottom: 5%;
   left: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.landing .option {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ffffff;
-  border-radius: 50%;
-}
-
-.landing .option:nth-child(2) {
-  background-color: var(--main-color);
-  border-color: transparent;
-}
-
-
-.landing .option:not(:nth-child(2)):hover {
-  background-color: var(--secondary-color);
-  border-color: transparent;
-  cursor: pointer;
 }
 
 .landing .angle-left,
@@ -271,18 +269,6 @@ html {
   padding: 2% 5% 2% 10%;
 }
 
-/* Small */
-@media (max-width: 767px) {
-  .landing .landing-content {
-    width: 100%;
-  }
-
-  .landing .angle-left,
-  .landing .angle-right {
-    display: none;
-  }
-}
-
 .landing .landing-content p {
   color: #ffffff;
   line-height: 1.6;
@@ -294,10 +280,27 @@ html {
   font-size: 32px;
 }
 
+/* Small */
+@media (max-width: 767px) {
+  .landing .landing-content {
+    width: 100%;
+  }
+
+  .landing .landing-content p {
+    line-height: 1.2;
+  }
+
+  .landing .angle-left,
+  .landing .angle-right {
+    display: none;
+  }
+}
+
+
+
 
 .services {
-  width: 100%;
-  padding: 80px 0px 80px;
+  padding: var(--section-padding) 0px;
 }
 
 
@@ -339,12 +342,6 @@ html {
 
 }
 
-
-.services .service i {
-  font-size: 48px;
-  padding: 0;
-}
-
 .services .service h2 {
   margin: 0px;
   font-size: 21px;
@@ -359,6 +356,7 @@ html {
 
 .design {
   background-image: url(../images/design-features.jpg);
+  background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
   height: 95vh;
@@ -401,8 +399,6 @@ html {
 
 .design .design-content ul {
   padding: 60px 0px 30px;
-  margin: 0;
-  list-style: none;
 }
 
 .design .design-content li {
@@ -417,8 +413,7 @@ html {
 
 
 .portfolio {
-  width: 100%;
-  padding: 80px 0px 80px;
+  padding: var(--section-padding) 0px;
   position: relative;
 }
 
@@ -430,8 +425,6 @@ html {
 
 .portfolio .portfolio-sections {
   padding: 60px 0px;
-  margin: 0;
-  list-style: none;
   font-size: 16px;
 }
 
@@ -588,8 +581,7 @@ html {
 }
 
 .about-us {
-  padding-top: 80px;
-  width: 100%;
+  padding: var(--section-padding) 0px 0px;
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -616,16 +608,13 @@ html {
 }
 
 
-
 .stats {
-  width: 100%;
-  min-height: 70vh;
-  max-height: fit-content;
+  padding: var(--section-padding) 0px;
+  height: fit-content;
   background-image: url(../images/stats.png);
+  background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
-  padding-top: 15vh;
-  padding-bottom: 10vh;
 }
 
 .stats .container {
@@ -701,4 +690,215 @@ html {
   font-size: 18px;
   padding-top: 30px;
   color: #ffffff;
+}
+
+
+.data {
+  display: flex;
+  justify-content: space-evenly;
+  padding: var(--section-padding) 0px;
+}
+
+.data h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.data p {
+  margin-bottom: 40px;
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.data .testimonials {
+  width: 35%;
+}
+
+
+
+.data .testimonials .person {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.data .testimonials .person-info {
+  border-bottom: 1px solid rgba(119, 119, 119, 0.6);
+  margin: 0px 30px;
+}
+
+.data .testimonials .person-info p {
+  margin: 0px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  color: #000000;
+  text-align: left;
+}
+
+.data .testimonials .person-info span {
+  display: block;
+  color: #777;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+
+.data .testimonials .person-img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+}
+
+.data .testimonials .person-img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.data .testimonials .option-box {
+  margin: 0 auto;
+}
+
+.data .testimonials .option:not(.active) {
+  border-color: #777;
+}
+
+.data .skills {
+  width: 35%;
+}
+
+.data .skills .skill {
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.data .skills .skill span {
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+
+.data .skills .skill div {
+  width: 100%;
+  height: 30px;
+  background-color: #dedadc;
+  position: relative;
+}
+
+.data .skills .skill div::before {
+  content: "";
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  background-color: var(--main-color);
+}
+
+.data .skills .skill div::after {
+  content: "";
+  position: absolute;
+  left: 90%;
+  top: -10%;
+  transform: translate(-50%, -50%);
+  border: 10px solid transparent;
+  border-top-color: #000000;
+}
+
+.data .skills .skill h6 {
+  margin: 0;
+  position: absolute;
+  left: 90%;
+  top: -10%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.subscribe {
+  background-color: rgba(0, 0, 0, 0.6);
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  background-blend-mode: darken;
+  padding: var(--section-padding) 0;
+}
+
+.subscribe .container {
+  display: flex;
+  align-items: center;
+}
+
+/* Small */
+@media (max-width: 767px) {
+  .subscribe .container {
+    flex-direction: column;
+  }
+}
+
+.subscribe .email-box {
+  position: relative;
+  height: fit-content;
+  display: flex;
+}
+
+.subscribe .email-box::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  font-size: 20px;
+  content: "\f0e0";
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  color: #ffffff;
+  transform: translate(-50%, -50%);
+}
+
+.subscribe input {
+  background-color: transparent;
+  font-size: 16px;
+  color: #ffffff;
+  outline: none;
+  border: 1px solid #ffffff;
+  border-right: none;
+  padding: 20px;
+  padding-left: 60px;
+  caret-color: var(--main-color);
+}
+
+.subscribe input::placeholder {
+  color: #ffffff;
+}
+
+.subscribe .sub-button {
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 20px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-left: none;
+  background-color: var(--main-color);
+  cursor: default;
+}
+
+.subscribe p {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-left: 80px;
+}
+
+/* Small */
+@media (max-width: 767px) {
+  .subscribe p {
+    margin: 0;
+    margin-top: 60px;
+  }
 }
