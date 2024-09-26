@@ -619,7 +619,8 @@ html {
 
 .stats {
   width: 100%;
-  min-height: 70vh; max-height: fit-content;
+  min-height: 70vh;
+  max-height: fit-content;
   background-image: url(../images/stats.png);
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
@@ -653,7 +654,8 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  color: #ffffff;background-color: var(--secondary-color);
+  color: #ffffff;
+  background-color: var(--secondary-color);
 }
 
 .stats .stat i {
@@ -673,11 +675,30 @@ html {
 }
 
 
-.quote{
-  width: 100%; padding-top: 70px; padding-bottom: 70px;
-  background-image: url(../images/quote.jpg); background-size: cover;
+.quote {
+  width: 100%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-image: url(../images/quote.jpg);
+  background-size: cover;
   background-color: rgba(0, 0, 0, 0.8);
   background-blend-mode: darken;
 }
-.quote .container{display: flex; flex-direction: column; align-items: center;}
-.quote q{color: #ffffff; font-size: 32px;text-align: center;} .quote span{font-size: 18px; padding-top: 30px; color: #ffffff;}
+
+.quote .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote q {
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+}
+
+.quote span {
+  font-size: 18px;
+  padding-top: 30px;
+  color: #ffffff;
+}
