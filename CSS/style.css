@@ -823,8 +823,14 @@ html {
   border-radius: 5px;
 }
 
+
+
+.pricing {
+  padding: var(--section-padding) 0;
+}
+
 .subscribe {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   background-image: url(../images/subscribe.jpg);
   background-size: cover;
   background-blend-mode: darken;
@@ -901,4 +907,50 @@ html {
     margin: 0;
     margin-top: 60px;
   }
+}
+
+.contact-us {
+  padding: var(--section-padding) 0px;
+}
+
+
+
+
+
+
+.footer {
+  padding: var(--section-padding) 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  background-blend-mode: darken;
+  color: #ffffff;
+}
+
+.footer img {
+  padding-bottom: 20px;
+}
+
+.footer>span {
+  text-transform: uppercase;
+  font-size: 24px;
+  padding: 20px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.footer .socials i {
+  padding: 20px 10px;
+}
+
+.footer p {
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+.footer p span {
+  color: var(--main-color);
+
 }
