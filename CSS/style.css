@@ -126,6 +126,16 @@ html {
   cursor: pointer;
 }
 
+.main-button {
+  padding: 15px 20px;
+  color: #ffffff;
+  background-color: var(--main-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+/* End Components */
 
 .header {
   width: 100%;
@@ -151,16 +161,32 @@ html {
   left: 15px;
 }
 
+.header i {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
 .header .logo img {
   width: 125px
+}
+
+.header .links-icon {
+  display: none;
+  transform: translateY(3px);
 }
 
 /* Small */
 @media (max-width: 767px) {
   .header .links {
     display: none;
+
   }
 
+  .header .links-icon {
+    display: initial;
+  }
 }
 
 .header .links li {
@@ -170,14 +196,6 @@ html {
 .header .links-search {
   display: flex;
   align-items: center;
-}
-
-.header .links-search i {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: bolder;
-  transform: translate(0, -2.5px);
-  cursor: pointer;
 }
 
 .header .links-search p {
@@ -362,6 +380,25 @@ html {
   height: 95vh;
   position: relative;
   overflow-y: hidden;
+  display: grid;
+}
+
+.design .mobile-img {
+  width: 50%;
+  position: relative;
+}
+
+.design .mobile-img img {
+  position: absolute;
+  left: 5%;
+  bottom: -20%
+}
+
+/* Small */
+@media (max-width: 767px) {
+  .design .mobile-img {
+    display: none;
+  }
 }
 
 .design .design-content {
@@ -375,20 +412,10 @@ html {
   color: #ffffff;
 }
 
-.design .mobile-img {
-  position: absolute;
-  left: 12%;
-  bottom: -20%
-}
-
 /* Small */
 @media (max-width: 767px) {
   .design .design-content {
     width: 100%;
-  }
-
-  .design .mobile-img {
-    display: none;
   }
 }
 
@@ -408,7 +435,7 @@ html {
 
 
 .design .design-content i {
-  padding-right: 30px;
+  padding-right: 15px;
 }
 
 
@@ -439,6 +466,7 @@ html {
 }
 
 .portfolio .portfolio-content .shuffle-content {
+  margin-bottom: 40px;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -454,7 +482,7 @@ html {
 /* Small */
 @media (max-width: 767px) {
   .portfolio .portfolio-content .shuffle-content {
-    grid-template-columns: .8fr;
+    grid-template-columns: .9fr;
     justify-content: center;
   }
 }
@@ -504,15 +532,6 @@ html {
   transform: rotate(3deg) scale(1.1);
 }
 
-.portfolio .portfolio-content .more {
-  margin-top: 40px;
-  padding: 15px 20px;
-  color: #ffffff;
-  background-color: var(--main-color);
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 16px;
-}
 
 .video {
   position: relative;
@@ -632,7 +651,7 @@ html {
 /* Small */
 @media (max-width: 767px) {
   .stats .container {
-    grid-template-columns: .8fr;
+    grid-template-columns: .9fr;
     justify-content: center;
   }
 }
@@ -694,18 +713,32 @@ html {
 
 
 .data {
-  display: flex;
-  justify-content: space-evenly;
   padding: var(--section-padding) 0px;
 }
 
-.data h2 {
+.data .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Small */
+@media (max-width: 767px) {
+  .data .container {
+    display: grid;
+    grid-template-columns: 0.9fr;
+    justify-content: center;
+    row-gap: 60px;
+  }
+}
+
+.data .container>div>h2 {
   text-align: center;
   text-transform: uppercase;
   font-weight: normal;
 }
 
-.data p {
+.data .container>div>p {
   margin-bottom: 40px;
   text-align: center;
   color: #777;
@@ -714,14 +747,13 @@ html {
 }
 
 .data .testimonials {
-  width: 35%;
+  flex-basis: 45%;
 }
 
 
 
 .data .testimonials .person {
   display: flex;
-  align-items: flex-start;
   margin-bottom: 40px;
 }
 
@@ -766,18 +798,20 @@ html {
 }
 
 .data .skills {
-  width: 35%;
+  flex-basis: 45%;
 }
 
 .data .skills .skill {
-  position: relative;
   margin-bottom: 40px;
   margin-top: 20px;
 }
 
-.data .skills .skill span {
+.data .skills .skill h6 {
   text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 20px;
   font-size: 16px;
+  font-weight: normal;
 }
 
 
@@ -788,9 +822,7 @@ html {
   position: relative;
 }
 
-.data .skills .skill div::before {
-  content: "";
-  width: 90%;
+.data .skills .skill span {
   height: 100%;
   position: absolute;
   left: 0%;
@@ -798,22 +830,23 @@ html {
   background-color: var(--main-color);
 }
 
-.data .skills .skill div::after {
+.data .skills .skill span::after {
   content: "";
   position: absolute;
-  left: 90%;
-  top: -10%;
-  transform: translate(-50%, -50%);
+  right: 0;
+  top: -50%;
+  transform: translate(50%, -25%);
   border: 10px solid transparent;
   border-top-color: #000000;
 }
 
-.data .skills .skill h6 {
+.data .skills .skill span::before {
+  content: attr(data-percent);
   margin: 0;
   position: absolute;
-  left: 90%;
-  top: -10%;
-  transform: translate(-50%, -50%);
+  right: 0;
+  top: -150%;
+  transform: translateX(50%);
   background-color: #000000;
   color: #ffffff;
   font-size: 16px;
@@ -829,6 +862,108 @@ html {
   padding: var(--section-padding) 0;
 }
 
+.pricing .container {
+  text-align: center;
+}
+
+.pricing .container .plans+p {
+  font-size: 20px;
+  margin: 40px 0px;
+}
+
+
+.pricing .plans {
+  margin: 80px 0;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 3%;
+}
+
+/* Medium */
+@media (max-width: 991px) {
+  .pricing .plans {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5%;
+  }
+}
+
+/* Small */
+@media (max-width: 570px) {
+  .pricing .plans {
+    display: grid;
+    grid-template-columns: 0.9fr;
+    justify-content: center;
+    gap: 5%;
+  }
+}
+
+.pricing .plan {
+  background-color: #fcfcfc;
+  border-top: 1px solid var(--main-color);
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+}
+
+.pricing .plan .name {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 18px;
+  margin: 0;
+}
+
+.pricing .plan .price {
+  font-size: 60px;
+  margin: 20px 0px;
+  position: relative;
+}
+
+.pricing .plan .price::before {
+  content: "$";
+  position: absolute;
+  left: -30px;
+  top: 0;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.pricing .plan .price::after {
+  content: "/Mo";
+  position: absolute;
+  right: -50px;
+  bottom: 0;
+  font-size: 20px;
+}
+
+
+.pricing .plan .features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  border-top: 1px solid var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+  margin: 20px 0px;
+}
+
+.pricing .plan .feature {
+  padding: 20px;
+}
+
+.pricing .plan .feature:not(:last-of-type) {
+  border-bottom: 1px solid var(--main-color);
+}
+
+.pricing .plan a {
+  text-decoration: none;
+  padding: 20px;
+  border: 1px solid var(--main-color);
+}
+
 .subscribe {
   background-color: rgba(0, 0, 0, 0.8);
   background-image: url(../images/subscribe.jpg);
@@ -838,20 +973,24 @@ html {
 }
 
 .subscribe .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 80px;
   align-items: center;
 }
 
 /* Small */
 @media (max-width: 767px) {
   .subscribe .container {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 0.9fr;
+    justify-content: center;
+    row-gap: 60px;
   }
 }
 
 .subscribe .email-box {
   position: relative;
-  height: fit-content;
   display: flex;
 }
 
@@ -861,13 +1000,13 @@ html {
   font-size: 20px;
   content: "\f0e0";
   position: absolute;
-  left: 30px;
+  left: 25px;
   top: 50%;
   color: #ffffff;
   transform: translate(-50%, -50%);
 }
 
-.subscribe input {
+.subscribe .email-box input {
   background-color: transparent;
   font-size: 16px;
   color: #ffffff;
@@ -875,19 +1014,23 @@ html {
   border: 1px solid #ffffff;
   border-right: none;
   padding: 20px;
-  padding-left: 60px;
+  padding-left: 50px;
   caret-color: var(--main-color);
 }
 
-.subscribe input::placeholder {
+/* Small */
+@media (max-width: 410px) {
+  .subscribe .email-box input {
+    width: 200px;
+  }
+}
+
+.subscribe .email-box input::placeholder {
   color: #ffffff;
 }
 
-.subscribe .sub-button {
-  font-size: 16px;
-  text-transform: uppercase;
+.subscribe .main-button {
   padding: 20px;
-  color: #ffffff;
   border: 1px solid #ffffff;
   border-left: none;
   background-color: var(--main-color);
@@ -898,15 +1041,6 @@ html {
   color: #ffffff;
   font-size: 16px;
   line-height: 1.6;
-  margin-left: 80px;
-}
-
-/* Small */
-@media (max-width: 767px) {
-  .subscribe p {
-    margin: 0;
-    margin-top: 60px;
-  }
 }
 
 .contact-us {
@@ -952,5 +1086,4 @@ html {
 
 .footer p span {
   color: var(--main-color);
-
 }
