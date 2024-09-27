@@ -55,7 +55,6 @@ body {
   }
 }
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -81,7 +80,6 @@ html {
   height: 2px;
   background-color: #000000;
   bottom: -50%;
-
 }
 
 .heading-decor::before {
@@ -99,10 +97,9 @@ html {
 }
 
 .heading-decor+p {
-  padding-top: 40px;
   text-align: center;
   width: 50%;
-  margin: 0px auto;
+  margin: 0px auto; margin-top: 80px;
   color: var(--second-text-color);
   font-size: 16px;
 }
@@ -391,7 +388,7 @@ html {
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
   background-blend-mode: darken;
-  height: 95vh;
+  height: 500px;
   position: relative;
   overflow-y: hidden;
   display: grid;
@@ -457,13 +454,10 @@ html {
 
 .portfolio {
   padding: var(--section-padding) 0px;
-  position: relative;
 }
 
 .portfolio .portfolio-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .portfolio .portfolio-sections {
@@ -483,7 +477,6 @@ html {
 
 .portfolio .portfolio-content .shuffle-content {
   margin-bottom: 40px;
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -622,28 +615,22 @@ html {
 .about-us {
   padding: var(--section-padding) 0px 0px;
   height: 100vh;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
 }
 
-/* Small */
-@media (max-width: 767px) {
+/* Meduim */
+@media (max-width: 991px) {
   .about-us {
-    height: 70vh;
+    height: 500px;
   }
 }
 
-.about-us .about-img {
-  position: absolute;
-  left: 10%;
-  bottom: 0;
-  width: 55%;
-  height: fit-content;
-}
-
 .about-us img {
-  width: 100%;
-  transform: translate(15%, 40%);
+  width: 65%;
+  transform: translate(20%, 35%);
 }
 
 /*********** about us section end ***********/
@@ -696,17 +683,12 @@ html {
   border-radius: 50%;
 }
 
-.stats .stat span:last-of-type {
-  font-size: 14px;
-}
-
 .stats .stat span:first-of-type {
   font-size: 40px;
   font-weight: bold;
 }
 
 /*********** stats section end ***********/
-
 
 /*********** testimonials and skills section start ***********/
 
@@ -994,10 +976,18 @@ html {
 
 .pricing .plan .feature {
   padding: 20px;
+  position: relative;
 }
 
-.pricing .plan .feature:not(:last-of-type) {
-  border-bottom: 1px solid var(--main-color);
+.pricing .plan .feature:not(:last-of-type)::before {
+  content: "";
+  width: 140px;
+  height: 1px;
+  background-color: var(--main-color);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .pricing .plan a {
@@ -1117,7 +1107,6 @@ html {
 .contact-us form {
   display: flex;
   flex-direction: column;
-
 }
 
 .contact-us form input:not([type="submit"]),
@@ -1137,21 +1126,34 @@ html {
   align-self: flex-end;
 }
 
+/* Small */
+@media (max-width: 767px) {
+  .contact-us .contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+  }
+}
+
 .contact-us .contact-content>div>h2 {
   text-transform: uppercase;
   margin: 0;
-  margin-bottom: 0px;
+  margin-bottom: 30px;
+  font-size: 20px;
   font-weight: normal;
 }
 
-.contact-us .contact-content>div>p {
+.contact-us .contact-info p,
+.contact-us .contact-info address {
   color: var(--second-text-color);
   font-size: 16px;
   line-height: 1.6;
 }
 
-.contact-us .contact-content>div>p:first-of-type {
-  margin-bottom: 90px;
+.contact-us .contact-content>div>p {
+  margin: 0;
+  margin-bottom: 80px;
+  grid-area: 2;
 }
 
 /*********** contact us section end ***********/
