@@ -1,13 +1,19 @@
 :root {
-  --section-padding: 80px;
+  --section-padding: 100px;
   --main-color: #19c8fa;
   --secondary-color: rgb(15 116 143 / 70%);
+  --second-text-color: #777;
 }
 
 ul {
   list-style: none;
   padding: 0px;
   margin: 0px;
+}
+
+input {
+  outline: none;
+  border: none;
 }
 
 * {
@@ -54,6 +60,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/*********** Start Components ***********/
+
 /*decoration for headings of each section */
 .heading-decor {
   margin: 0px auto;
@@ -68,12 +76,12 @@ html {
   content: '';
   z-index: 7;
   position: absolute;
-  left: 0%;
+  left: 15%;
   width: 70%;
-  height: 1px;
+  height: 2px;
   background-color: #000000;
-  bottom: -45%;
-  transform: translate(20%, -1.5px);
+  bottom: -50%;
+
 }
 
 .heading-decor::before {
@@ -81,13 +89,12 @@ html {
   position: absolute;
   z-index: 8;
   left: 50%;
-  bottom: -57%;
-  transform: translate(-50%, 0);
-  width: 7%;
-  padding-bottom: 7%;
-  height: 0;
+  bottom: -50%;
+  transform: translate(-50%, 50%);
+  width: 16px;
+  height: 16px;
   background-color: #ffffff;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   border-radius: 50%;
 }
 
@@ -96,7 +103,7 @@ html {
   text-align: center;
   width: 50%;
   margin: 0px auto;
-  color: #777;
+  color: var(--second-text-color);
   font-size: 16px;
 }
 
@@ -119,7 +126,6 @@ html {
   border-color: var(--main-color);
 }
 
-
 .option:not(.active):hover {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
@@ -135,8 +141,10 @@ html {
   font-size: 16px;
 }
 
-/* End Components */
+/*********** End Components ***********/
 
+
+/*********** header section start ***********/
 .header {
   width: 100%;
   background-color: transparent;
@@ -223,7 +231,6 @@ html {
   color: var(--main-color);
 }
 
-
 .header .links li:first-of-type a::before,
 .header .links li:not(:first-of-type):hover a::before {
   content: '';
@@ -243,6 +250,9 @@ html {
   color: var(--main-color);
 }
 
+/*********** header section end ***********/
+
+/*********** landing section start ***********/
 
 .landing {
   background-image: url(../images/landing.jpg);
@@ -262,6 +272,7 @@ html {
 .landing .angle-left,
 .landing .angle-right {
   position: absolute;
+  z-index: 3;
   top: 50%;
   text-decoration: none;
   font-size: 28px;
@@ -314,13 +325,13 @@ html {
   }
 }
 
+/*********** landing section end ***********/
 
-
+/*********** services section start ***********/
 
 .services {
   padding: var(--section-padding) 0px;
 }
-
 
 .services .services-content {
   margin-top: 80px;
@@ -332,7 +343,6 @@ html {
 .service .service-text {
   padding-left: 40px;
 }
-
 
 .services .service {
   padding-right: 20px;
@@ -367,10 +377,14 @@ html {
 }
 
 .services .service p {
-  color: #777;
+  color: var(--second-text-color);
   font-size: 16px;
   line-height: 1.8;
 }
+
+/*********** services section end ***********/
+
+/*********** design section start ***********/
 
 .design {
   background-image: url(../images/design-features.jpg);
@@ -433,11 +447,13 @@ html {
   padding-bottom: 30px;
 }
 
-
 .design .design-content i {
   padding-right: 15px;
 }
 
+/*********** design section end ***********/
+
+/*********** portfolio section start ***********/
 
 .portfolio {
   padding: var(--section-padding) 0px;
@@ -487,8 +503,6 @@ html {
   }
 }
 
-
-
 .portfolio .portfolio-content .shuffle {
   position: relative;
   overflow: hidden;
@@ -532,6 +546,9 @@ html {
   transform: rotate(3deg) scale(1.1);
 }
 
+/*********** portfolio section end ***********/
+
+/*********** video section start ***********/
 
 .video {
   position: relative;
@@ -540,7 +557,6 @@ html {
 .video video {
   width: 100%;
 }
-
 
 .video::before {
   content: "";
@@ -599,6 +615,10 @@ html {
   }
 }
 
+/*********** video section end ***********/
+
+/*********** about us section start ***********/
+
 .about-us {
   padding: var(--section-padding) 0px 0px;
   height: 100vh;
@@ -626,6 +646,9 @@ html {
   transform: translate(15%, 40%);
 }
 
+/*********** about us section end ***********/
+
+/*********** stats section start ***********/
 
 .stats {
   padding: var(--section-padding) 0px;
@@ -682,35 +705,10 @@ html {
   font-weight: bold;
 }
 
+/*********** stats section end ***********/
 
-.quote {
-  width: 100%;
-  padding-top: 70px;
-  padding-bottom: 70px;
-  background-image: url(../images/quote.jpg);
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.8);
-  background-blend-mode: darken;
-}
 
-.quote .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.quote q {
-  color: #ffffff;
-  font-size: 32px;
-  text-align: center;
-}
-
-.quote span {
-  font-size: 18px;
-  padding-top: 30px;
-  color: #ffffff;
-}
-
+/*********** testimonials and skills section start ***********/
 
 .data {
   padding: var(--section-padding) 0px;
@@ -741,7 +739,7 @@ html {
 .data .container>div>p {
   margin-bottom: 40px;
   text-align: center;
-  color: #777;
+  color: var(--second-text-color);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -749,7 +747,6 @@ html {
 .data .testimonials {
   flex-basis: 45%;
 }
-
 
 
 .data .testimonials .person {
@@ -772,7 +769,7 @@ html {
 
 .data .testimonials .person-info span {
   display: block;
-  color: #777;
+  color: var(--second-text-color);
   text-align: right;
   margin-bottom: 10px;
 }
@@ -856,7 +853,57 @@ html {
   border-radius: 5px;
 }
 
+/*********** testimonials and skills section end ***********/
 
+/*********** quote section start ***********/
+
+.quote {
+  width: 100%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-image: url(../images/quote.jpg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: darken;
+}
+
+.quote .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote q {
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+}
+
+.quote q::before,
+.quote q::after {
+  font-family: FontAwesome;
+  font-size: 50%;
+  vertical-align: super;
+}
+
+.quote q::before {
+  content: "\f10d";
+}
+
+.quote q::after {
+
+  content: "\f10e";
+}
+
+.quote span {
+  font-size: 18px;
+  padding-top: 30px;
+  color: #ffffff;
+}
+
+/*********** quote section end ***********/
+
+/*********** pricing section start ***********/
 
 .pricing {
   padding: var(--section-padding) 0;
@@ -874,27 +921,24 @@ html {
 
 .pricing .plans {
   margin: 80px 0;
+  height: fit-content;
   display: grid;
   grid-template-columns: repeat(4, auto);
-  column-gap: 3%;
+  gap: 50px;
 }
 
 /* Medium */
 @media (max-width: 991px) {
   .pricing .plans {
-    display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 5%;
   }
 }
 
 /* Small */
 @media (max-width: 570px) {
   .pricing .plans {
-    display: grid;
     grid-template-columns: 0.9fr;
     justify-content: center;
-    gap: 5%;
   }
 }
 
@@ -938,12 +982,10 @@ html {
   font-size: 20px;
 }
 
-
 .pricing .plan .features {
   width: 100%;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   border-top: 1px solid var(--main-color);
   border-bottom: 1px solid var(--main-color);
@@ -963,6 +1005,10 @@ html {
   padding: 20px;
   border: 1px solid var(--main-color);
 }
+
+/*********** pricing section end ***********/
+
+/*********** subscribe section start ***********/
 
 .subscribe {
   background-color: rgba(0, 0, 0, 0.8);
@@ -992,6 +1038,7 @@ html {
 .subscribe .email-box {
   position: relative;
   display: flex;
+  width: 100%;
 }
 
 .subscribe .email-box::before {
@@ -1007,6 +1054,7 @@ html {
 }
 
 .subscribe .email-box input {
+  width: 70%;
   background-color: transparent;
   font-size: 16px;
   color: #ffffff;
@@ -1018,19 +1066,17 @@ html {
   caret-color: var(--main-color);
 }
 
-/* Small */
-@media (max-width: 410px) {
-  .subscribe .email-box input {
-    width: 200px;
-  }
-}
-
 .subscribe .email-box input::placeholder {
   color: #ffffff;
 }
 
 .subscribe .main-button {
-  padding: 20px;
+  min-width: fit-content;
+  width: 30%;
+  padding: 0px 10px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #ffffff;
   border-left: none;
   background-color: var(--main-color);
@@ -1043,17 +1089,76 @@ html {
   line-height: 1.6;
 }
 
+/*********** subscribe section end ***********/
+
+/*********** contact us section start ***********/
+
 .contact-us {
   padding: var(--section-padding) 0px;
 }
 
+.contact-us .contact-content {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  column-gap: 100px;
+  margin: 40px 0;
+}
 
+/* Small */
+@media (max-width: 767px) {
+  .contact-us .contact-content {
+    grid-template-columns: 0.9fr;
+    justify-content: center;
+    text-align: center;
+    row-gap: 60px;
+  }
+}
 
+.contact-us form {
+  display: flex;
+  flex-direction: column;
 
+}
 
+.contact-us form input:not([type="submit"]),
+.contact-us form textarea {
+  padding: 20px;
+  border: 1px solid #dedadc;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
 
+.contact-us form textarea {
+  outline: none;
+  height: 200px;
+}
+
+.contact-us form input[type="submit"] {
+  align-self: flex-end;
+}
+
+.contact-us .contact-content>div>h2 {
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 0px;
+  font-weight: normal;
+}
+
+.contact-us .contact-content>div>p {
+  color: var(--second-text-color);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.contact-us .contact-content>div>p:first-of-type {
+  margin-bottom: 90px;
+}
+
+/*********** contact us section end ***********/
+
+/*********** footer section start ***********/
 .footer {
-  padding: var(--section-padding) 0 40px;
+  padding: calc(var(--section-padding) / 2) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1087,3 +1192,5 @@ html {
 .footer p span {
   color: var(--main-color);
 }
+
+/*********** footer section end ***********/
